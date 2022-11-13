@@ -1,6 +1,7 @@
 var jet = document.getElementById("jet");
 var board = document.getElementById("board");
-
+var record=document.getElementById('rec')
+var cont =document.getElementsByClassName('container')
 window.addEventListener("keydown", (e) => {
   var left = parseInt(window.getComputedStyle(jet).getPropertyValue("left"));
   if (e.key == "ArrowLeft" && left > 0) {
@@ -9,7 +10,7 @@ window.addEventListener("keydown", (e) => {
     jet.style.left = left + 18 + "px";
   }
   // The getComputedStyle() method gets the computed CSS properties and values of an HTML element.
-  if (e.key == "ArrowUp" || e.keyCode   == 32) {
+  if (e.key == "ArrowUp" || e.keyCode == 32) {
     var bullet = document.createElement("div");
     bullet.classList.add("bullets");
     board.appendChild(bullet);
@@ -74,14 +75,14 @@ var moverocks = setInterval(() => {
       var rocktop = parseInt(
         window.getComputedStyle(rock).getPropertyValue("top")
       );
-
       if (rocktop >= 475) {
         alert("togloom duuslaa");
         clearInterval(moverocks);
+        record.innerText= document.getElementById("points").innerHTML 
         window.location.reload();
-      }
 
+      } 
       rock.style.top = rocktop + 25 + "px";
-    }
-  }
+    } 
+  } 
 }, 550);
